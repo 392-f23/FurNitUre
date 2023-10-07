@@ -3,7 +3,7 @@
   height: auto;
   margin: 20px 20px 20px 10px;
   display: flex;
-  flex: 4;
+  flex: 5;
   border: 3px solid black;
   max-height: 85vh;
   overflow-y: auto;
@@ -18,7 +18,7 @@
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(5, 16rem);
+  grid-template-columns: repeat(5, 256px);
   gap: 20px;
   justify-content: center;
   padding: 20px 10px 20px 10px;
@@ -26,24 +26,24 @@
 
 @media (max-width: 1800px) {
   .furniture-item-list {
-    grid-template-columns: repeat(4, 16rem);
+    grid-template-columns: repeat(4, 256px);
   }
 }
 
 @media (max-width: 1500px) {
   .furniture-item-list {
-    grid-template-columns: repeat(3, 16rem);
+    grid-template-columns: repeat(3, 256px);
   }
 }
 
 @media (max-width: 1200px) {
   .furniture-item-list {
-    grid-template-columns: repeat(2, 16rem);
+    grid-template-columns: repeat(2, 256px);
   }
 }
 
 @media (max-width: 800px) {
   .furniture-item-list {
-    grid-template-columns: repeat(1, 16rem);
+    grid-template-columns: repeat(1, 256px);
   }
 }
