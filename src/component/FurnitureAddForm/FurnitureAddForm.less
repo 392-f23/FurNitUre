@@ -1,4 +1,29 @@
-
+.visually-hidden-input {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  white-space: nowrap;
+  width: 1px;
+}
+.file-area{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.bottom-description{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 14rem);
+  margin-bottom: 20px; 
+    display: flex; 
+    flex-wrap: wrap;
+    margin: 10px;
+    justify-content: space-between; 
+}
 .furniture-listing {
     position: relative;
     display: flex;
@@ -6,13 +31,28 @@
     
     justify-content: space-between;
     height: auto;
-    margin: 50px;
+    width: 250px;
     background-color: transparent !important;
     border: 2px solid black !important;
     border-radius: 5px !important;
     overflow: visible !important;
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25) !important;
   }
+  .furniture-listing2{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    width: 100vh;
+    height: 60vh;
+    background-color: transparent !important;
+    border: 2px solid black !important;
+    border-radius: 5px !important;
+    overflow: visible !important;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25) !important;
+  }
+
   .furniture-listing-description {
     display: -webkit-box;
     -webkit-line-clamp: 2;
