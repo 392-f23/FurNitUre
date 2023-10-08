@@ -9,12 +9,32 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import AddForm from "../FurnitureAddForm/FurnitureAddForm";
+import React, { useState } from "react";
 import "./FurnitureSideBar.less";
 
 const FurnitureSideBar = () => {
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 800,
+    height: 600,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 5,
+  };
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <div className="furniture-sidebar">
-      
       <div className="furniture-sidebar-search-container">
         <TextField
           sx={{
@@ -199,8 +219,19 @@ const FurnitureSideBar = () => {
           size="small"
           className="furniture-sidebar-publish-furniture-button"
           disableRipple={true}
+          onClick={handleOpen}
         >
           Publish Furniture
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-0"
+            aria-describedby="modal-1"
+          >
+            <Box sx={style} id="modal-1">
+              <AddForm />
+            </Box>
+          </Modal>
         </Button>
       </div>
     </div>
