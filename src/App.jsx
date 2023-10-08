@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import FurnitureHeader from "./component/FurnitureHeader/FurnitureHeader";
 import FurnitureContent from "./component/FurnitureContent/FurnitureContent";
 import "./App.less";
