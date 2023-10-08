@@ -1,12 +1,10 @@
-import FurnitureHeader from "./component/FurnitureHeader/FurnitureHeader";
-import FurnitureContent from "./component/FurnitureContent/FurnitureContent";
 import "./App.less";
+import Dispatcher from "./component/Dispatcher";
 
 const App = () => {
   return (
     <div className="app">
-      <FurnitureHeader />
-      <FurnitureContent />
+      <Dispatcher />
     </div>
   );
 };
