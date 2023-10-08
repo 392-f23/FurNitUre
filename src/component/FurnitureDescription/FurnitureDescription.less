@@ -1,0 +1,64 @@
+.furniture-description {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 80%;  
+    margin: auto;  
+    border: 2px solid #333;
+    border-radius: 8px;
+}
+
+.furniture-image {
+    max-width: 50%;  
+    max-height: 500px;  
+    margin-right: 20px;
+    border-radius: 4px;
+}
+
+.furniture-details {
+    flex-grow: 1;
+    width: 50%;  
+}
+
+.furniture-details p {
+    margin: 15px 0;  
+    font-size: 18px;  
+    line-height: 1.6;  
+    text-align: justify;  
+}
+
+.furniture-details .name-label,
+.furniture-details .price-label,
+.furniture-details .description-label {
+    font-weight: bold;
+}
+
+.furniture-details p:first-child {
+    margin-top: 0;
+}
+
+.furniture-details p:last-child {
+    margin-bottom: 0;
+}
+
+.d-flex {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: transparent;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: rgb(237, 244, 215);
+    color: rgb(87, 86, 86);
+}

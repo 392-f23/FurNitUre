@@ -4,11 +4,19 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import "./FurnitureItem.less";
+import { useNavigate } from "react-router-dom";
 
 const FurnitureItem = () => {
+  const navigate = useNavigate();
+
+  const onFurnitureItemClicked = (e) => {
+    e.stopPropagation();
+    navigate(`/FurnitureDescription/furnitureId/detail`);
+  };
+
   return (
     <Card className="furniture-item">
-      <CardActionArea>
+      <CardActionArea onClick={onFurnitureItemClicked}>
         <CardMedia
           component="img"
           height="200"

@@ -1,0 +1,22 @@
+{
+    "furniture": {
+        "items": {
+            "1": {
+                "furnitureName": "XXX",
+                "imageLink": "XXX",
+                "description": "XXX",
+                "price": "XXX",
+                "sellerName": "XXX",
+                "sellerAddress": "XXX"
+            },
+            "2": {
+                "furnitureName": "YYY",
+                "imageLink": "YYY",
+                "description": "YYY",
+                "price": "YYY",
+                "sellerName": "YYY",
+                "sellerAddress": "YYY"
+            }
+        }
+    }
+}
