@@ -6,9 +6,17 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { Button, CardActionArea, CardActions } from "@mui/material";
+import { useNavigate } from 'react-router-dom';
 
 import "./FurnitureAddForm.less";
-
+const ButtonBar = () => {
+  const navigate = useNavigate();
+  return (
+    <div className="d-flex">
+      <button type="button" className="btn btn-outline-dark me-2" onClick={() => navigate("/")}>Back</button>
+    </div>
+  );
+};
 const AddForm = () => {
   const [focused, setFocused] = useState(null);
   const handleFocus = (inputName) => {
@@ -16,6 +24,7 @@ const AddForm = () => {
   };
   return (
   <div>
+  <Card className="submit-area">
   <div classname="file-area">
   <Card className="furniture-listing2">
     <CardActionArea>
@@ -82,6 +91,7 @@ const AddForm = () => {
     <div>
       <Button variant="outlined"> Post </Button> 
   </div>
+  </Card>
   </div>
   )
 }
