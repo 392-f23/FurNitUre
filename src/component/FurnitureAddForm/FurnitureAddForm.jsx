@@ -1,98 +1,79 @@
-
 import React, { useState } from 'react';
 import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { Button, CardActionArea, CardActions } from "@mui/material";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 import { useNavigate } from 'react-router-dom';
-
+import furniturePlaceholder from './furniturePlaceHolder.png';
 import "./FurnitureAddForm.less";
-const ButtonBar = () => {
-  const navigate = useNavigate();
-  return (
-    <div className="d-flex">
-      <button type="button" className="btn btn-outline-dark me-2" onClick={() => navigate("/")}>Back</button>
-    </div>
-  );
-};
+
 const AddForm = () => {
+  const navigate = useNavigate();
   const [focused, setFocused] = useState(null);
+
   const handleFocus = (inputName) => {
-      setFocused(inputName);
+    setFocused(inputName);
   };
-  return (
-  <div>
-  <Card className="submit-area">
-  <div classname="file-area">
-  <Card className="furniture-listing2">
-    <CardActionArea>
-      <CardContent >
-        <Typography
-          variant="body1"
-          color="text.secondary"
-          className="furniture-item-name"
-        >
-          Include a Picture:
-          <div></div>
-          <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}>
-    Upload file
-    <input type="file" className="visually-hidden-input"/>
-  </Button>
-        </Typography>
-      </CardContent>
-    </CardActionArea>
-  </Card>
- 
-  </div>
-  <div className= "bottom-description">
-  <Card className="furniture-listing">
-    <CardActionArea>
-      <CardContent >
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          className="furniture-item-name"
-        >
-          Add a Description:
-          <div></div>
-           <input
-              type="text"
-              name="Description"
-              placeholder="Describe your product..."
-              onFocus={() => handleFocus('title')}
-          />
-        </Typography>
-      </CardContent>
-    </CardActionArea>
-  </Card>
-  <Card className="furniture-listing">
-    <CardActionArea>
-      <CardContent >
-      <Typography
-          variant="h6"
-          component="div"
-          className="furniture-item-name"
-        >
-          Add a price: 
-          <div></div>
+
+  return (<>
+  <div className='topPad'></div>
+    <Card variant="outlined" sx={{ maxWidth: '90%', width: '600px',  margin: '0 auto', backgroundColor: "whitesmoke"}}>
+      <CardActionArea>
+        <CardContent>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            <Typography variant="body1" color="textSecondary">
+              Include a Picture:
+            </Typography>
+            <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}>
+              Upload file
+              <input type="file" className="visually-hidden-input" />
+            </Button>
+          </Box>
+        </CardContent>
+      </CardActionArea>
+      <CardMedia
+        component="img"
+        alt="Image Preview"
+        height="500"
+        image={furniturePlaceholder}
+      />
+      <CardContent>
+        <Typography variant="body1" color="textPrimary">
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          Add a Description:  
           <input
-              type="text"
-              name="title"
-              placeholder="Price"
-              onFocus={() => handleFocus('title')}
+            type="text"
+            name="Description"
+            placeholder="Describe your product..."
+            onFocus={() => handleFocus('title')}
           />
+          </div>
         </Typography>
       </CardContent>
-    </CardActionArea>
-  </Card>
-  </div>
-    <div>
-      <Button variant="outlined"> Post </Button> 
-  </div>
-  </Card>
-  </div>
-  )
+      <CardContent>
+        <Typography variant="body1" component="div" color="Primary">
+          
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          Add a price:
+          <input
+            type="text"
+            name="title"
+            placeholder="Price"
+            onFocus={() => handleFocus('title')}
+            
+          />
+          </div>
+        </Typography>
+      </CardContent>
+      <Button variant="outlined" onClick={() => navigate("/")} style=
+      {{display: 'flex', justifyContent: "center",   alignItems: "center", margin: '0 auto', marginBottom: '10px'}}>Post</Button>
+    </Card>
+    </>
+  );
 }
+
 export default AddForm;
