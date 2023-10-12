@@ -10,22 +10,15 @@ const ButtonBar = () => {
     );
 };
 
-const FurnitureDescription = () => {
+const FurnitureDescription = (props) => {
+  const {item} = props;
   return (
       <div className="furniture-description">
-          <img src="https://cdn.jsdelivr.net/gh/Hongda-OSU/PicGo/image/table.jpg" alt="Table" className="furniture-image" />
+          <img src={item.image} alt="Table" className="furniture-image" />
           <div className="furniture-details">
-              <p><span className="name-label">Name:</span> Furniture</p>
-              <p><span className="price-label">Price:</span> $40</p>
-              <p><span className="description-label">Description:</span> Discover the essence of elegant living with this exquisitely
-                handcrafted table, blending modern design with traditional
-                craftsmanship. Its sleek lines and robust wooden structure infuse a
-                touch of unique charm into your living space. Every detail is
-                meticulously refined, ensuring it's not just a practical piece of
-                furniture but an artistic statement. Moreover, its multifunctional
-                design makes it suitable for various settings, be it a formal office
-                environment or a cozy home ambiance. Choose our table and elevate
-                your space with distinctive style.</p>
+              <p><span className="name-label">Name:</span> {item.name}</p>
+              <p><span className="price-label">Price:</span> ${item.price}</p>
+              <p><span className="description-label">Description:</span> {item.description}</p>
           </div>
           <ButtonBar />
       </div>
