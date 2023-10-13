@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import FurnitureContactModal from "../FurnitureContactModal/FurnitureContactModal";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -14,6 +16,11 @@ const FurnitureItem = (props) => {
     e.stopPropagation();
     navigate(`/FurnitureDescription/${itemId}/detail`);
   };
+
+  const [open, setContactOpen] = useState(false);
+
+  const openContactModal = () => setContactOpen(true);
+  const closeContactModal = () => setContactOpen(false);
 
   return (
     <Card className="furniture-item">
@@ -50,14 +57,22 @@ const FurnitureItem = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions className="furniture-item-contact">
+        <div>
         <Button
           size="small"
           color="primary"
           className="furniture-item-contact-button"
           disableRipple={true}
+          onClick={openContactModal}
         >
           Contact
+          
         </Button>
+
+        <FurnitureContactModal open={open} close={closeContactModal}>
+        </FurnitureContactModal>
+        </div>
+        
       </CardActions>
     </Card>
   );
