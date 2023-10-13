@@ -2,20 +2,34 @@
     "furniture": {
         "items": {
             "1": {
-                "furnitureName": "XXX",
-                "imageLink": "XXX",
-                "description": "XXX",
-                "price": "XXX",
+                "furnitureName": "Table",
+                "imageLink": "https://cdn.jsdelivr.net/gh/Hongda-OSU/PicGo/image/table.jpg",
+                "description": "Discover the essence of elegant living with this exquisitely handcrafted table, blending modern design with traditional craftsmanship. Its sleek lines and robust wooden structure infuse a touch of unique charm into your living space. Every detail is meticulously refined, ensuring it's not just a practical piece of furniture but an artistic statement. Moreover, its multifunctional design makes it suitable for various settings, be it a formal office environment or a cozy home ambiance. Choose our table and elevate your space with distinctive style.",
+                "price": "40",
                 "sellerName": "XXX",
-                "sellerAddress": "XXX"
+                "sellerAddress": "XXX",
+                "sellerPhoneNumber": "",
+                "deliveryMethod":"",
+                "condition":"",
+                "brand":"",
+                "decorStyle":"",
+                "finsh":"",
+                "material":""
             },
             "2": {
-                "furnitureName": "YYY",
-                "imageLink": "YYY",
-                "description": "YYY",
-                "price": "YYY",
-                "sellerName": "YYY",
-                "sellerAddress": "YYY"
+                "furnitureName": "",
+                "imageLink": "",
+                "description": "",
+                "price": "",
+                "sellerName": "",
+                "sellerAddress": "",
+                "sellerPhoneNumber": "",
+                "deliveryMethod":"",
+                "condition":"",
+                "brand":"",
+                "decorStyle":"",
+                "finsh":"",
+                "material":""
             }
         }
     }
