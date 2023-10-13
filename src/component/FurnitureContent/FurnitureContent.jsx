@@ -2,11 +2,12 @@ import FurnitureSideBar from "../FurnitureSideBar/FurnitureSideBar";
 import FurnitureItemContainer from "../FurnitureItemContainer/FurnitureItemContainer";
 import "./FurnitureContent.less";
 
-const FurnitureContent = () => {
+const FurnitureContent = (props) => {
+  const {data} = props
   return (
     <div className="furniture-content">
       <FurnitureSideBar />
-      <FurnitureItemContainer />
+      <FurnitureItemContainer items={data.items} />
     </div>
   );
 };
