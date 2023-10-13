@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import "./index.less";
 
@@ -10,6 +10,20 @@ const theme = createTheme({
     MuiButtonBase: {
       defaultProps: {
         disableRipple: false,
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          "& .MuiOutlinedInput-notchedOutline": {
+            border: `3px solid black`,
+          },
+          "&.Mui-focused": {
+            "& .MuiOutlinedInput-notchedOutline": {
+              border: `3px solid #186af0`,
+            },
+          },
+        },
       },
     },
   },

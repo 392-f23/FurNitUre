@@ -4,13 +4,20 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Dosis";
+  src: url("https://cdn.jsdelivr.net/gh/Hongda-OSU/PicGo/image/Dosis-VariableFont_wght.ttf");
+  font-display: swap;
+}
+
 .furniture-header {
   position: relative;
   width: auto;
   height: auto;
-  margin: 10px 20px 10px 20px;
+  margin: 20px 20px 0 20px;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
 }
 
 .furniture-header-text-container {
@@ -19,15 +26,13 @@
   margin: 0 20px 0 60px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
 }
 
 .furniture-header-text {
   overflow-wrap: break-word;
   color: rgba(0, 0, 0, 1);
   font-family: "Caveat";
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 600;
   text-align: center;
   white-space: nowrap;
@@ -36,4 +41,25 @@
 
 .highlight {
   color: rgba(128, 0, 128, 1);
+}
+
+@media (max-width: 1200px) {
+  .furniture-header {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .furniture-header-text-container {
+    margin-left: 0;
+  }
+
+  .furniture-header-text {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 600px) {
+  .furniture-header-text {
+    font-size: 42px;
+  }
 }
