@@ -13,6 +13,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import AddForm from "../FurnitureAddForm/FurnitureAddForm";
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import "./FurnitureSideBar.less";
 
 const FurnitureSideBar = () => {
@@ -32,6 +33,11 @@ const FurnitureSideBar = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const navigate = useNavigate();
+  const createListingHandler = (e) => {
+    e.stopPropagation();
+    navigate(`/createListing`);
+  };
 
   return (
     <div className="furniture-sidebar">
@@ -219,19 +225,9 @@ const FurnitureSideBar = () => {
           size="small"
           className="furniture-sidebar-publish-furniture-button"
           disableRipple={true}
-          onClick={handleOpen}
+          onClick = {createListingHandler}
         >
           Publish Furniture
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-0"
-            aria-describedby="modal-1"
-          >
-            <Box sx={style} id="modal-1">
-              <AddForm />
-            </Box>
-          </Modal>
         </Button>
       </div>
     </div>
