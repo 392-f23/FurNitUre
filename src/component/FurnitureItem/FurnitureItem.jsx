@@ -1,15 +1,16 @@
-import { useState } from 'react';
+import { useState } from "react";
 import FurnitureContactModal from "../FurnitureContactModal/FurnitureContactModal";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
+import Divider from "@mui/material/Divider";
 import "./FurnitureItem.less";
 import { useNavigate } from "react-router-dom";
 
 const FurnitureItem = (props) => {
-  const {itemId,item} = props;
+  const { itemId, item } = props;
   const navigate = useNavigate();
 
   const onFurnitureItemClicked = (e) => {
@@ -22,13 +23,16 @@ const FurnitureItem = (props) => {
   const openContactModal = () => setContactOpen(true);
   const closeContactModal = () => setContactOpen(false);
 
+  const capitalizeFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
   return (
     <Card className="furniture-item">
       <CardActionArea onClick={onFurnitureItemClicked}>
         <CardMedia
           component="img"
           height="200"
-          // image={"https://cdn.jsdelivr.net/gh/Hongda-OSU/PicGo/image/table.jpg"}
           image={item.image}
           alt="Image "
         />
@@ -38,7 +42,7 @@ const FurnitureItem = (props) => {
             component="div"
             className="furniture-item-name"
           >
-            {item.name}
+            {capitalizeFirstLetter(item.name)}
           </Typography>
           <Typography
             variant="h6"
@@ -56,23 +60,24 @@ const FurnitureItem = (props) => {
           </Typography>
         </CardContent>
       </CardActionArea>
+      <Divider light />
       <CardActions className="furniture-item-contact">
         <div>
-        <Button
-          size="small"
-          color="primary"
-          className="furniture-item-contact-button"
-          disableRipple={true}
-          onClick={openContactModal}
-        >
-          Contact
-          
-        </Button>
+          <Button
+            size="small"
+            color="primary"
+            className="furniture-item-contact-button"
+            disableRipple={true}
+            onClick={openContactModal}
+          >
+            Contact
+          </Button>
 
-        <FurnitureContactModal open={open} close={closeContactModal}>
-        </FurnitureContactModal>
+          <FurnitureContactModal
+            open={open}
+            close={closeContactModal}
+          ></FurnitureContactModal>
         </div>
-        
       </CardActions>
     </Card>
   );
