@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Dispatcher from "./component/Dispatcher";
-import data from "./component/mockData.json";
+import data from "./utilities/furnitureData.json";
+//import data from "./component/mockData.json";
 import "./App.less";
 
 const App = () => {
-  const [furnitureData, setFurnitureData] = useState(data);
+  const [furnitureData, setFurnitureData] = useState(data.furniture);
   const addFunriture = (furniture) => {
     setFurnitureData({...furnitureData, furniture});
   };

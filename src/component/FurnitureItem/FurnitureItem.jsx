@@ -33,7 +33,7 @@ const FurnitureItem = (props) => {
         <CardMedia
           component="img"
           height="200"
-          image={item.image}
+          image={item.imageLink}
           alt="Image "
         />
         <CardContent className="furniture-item-content">
@@ -42,7 +42,7 @@ const FurnitureItem = (props) => {
             component="div"
             className="furniture-item-name"
           >
-            {capitalizeFirstLetter(item.name)}
+            {capitalizeFirstLetter(item.furnitureName)}
           </Typography>
           <Typography
             variant="h6"
