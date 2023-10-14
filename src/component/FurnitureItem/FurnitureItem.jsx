@@ -1,5 +1,3 @@
-import { useState } from "react";
-import FurnitureContactModal from "../FurnitureContactModal/FurnitureContactModal";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -7,6 +5,8 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import "./FurnitureItem.less";
+import React, { useState } from "react";
+import ContactModal from "../FurnitureContact/FurnitureContact";
 import { useNavigate } from "react-router-dom";
 
 const FurnitureItem = (props) => {
@@ -18,10 +18,15 @@ const FurnitureItem = (props) => {
     navigate(`/FurnitureDescription/${itemId}/detail`);
   };
 
-  const [open, setContactOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
 
-  const openContactModal = () => setContactOpen(true);
-  const closeContactModal = () => setContactOpen(false);
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
 
   const capitalizeFirstLetter = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -68,15 +73,15 @@ const FurnitureItem = (props) => {
             color="primary"
             className="furniture-item-contact-button"
             disableRipple={true}
-            onClick={openContactModal}
+            onClick={handleOpenModal}
           >
             Contact
           </Button>
 
-          <FurnitureContactModal
-            open={open}
-            close={closeContactModal}
-          ></FurnitureContactModal>
+          <ContactModal
+            isModalOpen={isModalOpen}
+            handleCloseModal={handleCloseModal}
+          />
         </div>
       </CardActions>
     </Card>
