@@ -53,7 +53,7 @@ const FurnitureSideBar = () => {
           </AccordionSummary>
           <AccordionDetails className="furniture-sidebar-accrodin-content">
             <div className="furniture-sidebar-accrodin-checkbox-container">
-              <FormControlLabel control={<Checkbox />} label="All" checked />
+              <FormControlLabel control={<Checkbox />} label="All" />
               <FormControlLabel control={<Checkbox />} label="Local pickup" />
               <FormControlLabel control={<Checkbox />} label="Shipping" />
             </div>
@@ -106,27 +106,6 @@ const FurnitureSideBar = () => {
               />
               <FormControlLabel control={<Checkbox />} label="Serena & Lily" />
               <FormControlLabel control={<Checkbox />} label="Z Gallerie" />
-            </div>
-          </AccordionDetails>
-        </Accordion>
-
-        <Accordion disableGutters className="furniture-sidebar-accrodin">
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography>Condition</Typography>
-          </AccordionSummary>
-          <AccordionDetails className="furniture-sidebar-accrodin-content">
-            <div className="furniture-sidebar-accrodin-checkbox-container">
-              <FormControlLabel control={<Checkbox />} label="New" />
-              <FormControlLabel
-                control={<Checkbox />}
-                label="Used - Like new"
-              />
-              <FormControlLabel control={<Checkbox />} label="Used - Good" />
-              <FormControlLabel control={<Checkbox />} label="Used - Fair" />
             </div>
           </AccordionDetails>
         </Accordion>
