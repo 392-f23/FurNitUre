@@ -1,21 +1,14 @@
 import FurnitureItem from "../FurnitureItem/FurnitureItem";
 import "./FurnitureItemContainer.less";
 
-const FurnitureItemContainer = () => {
+const FurnitureItemContainer = (props) => {
+  const items = props.items;
   return (
     <div className="furniture-item-container">
       <div className="furniture-item-list">
-        <FurnitureItem />
-        <FurnitureItem />
-        <FurnitureItem />
-        <FurnitureItem />
-        <FurnitureItem />
-        <FurnitureItem />
-        <FurnitureItem />
-        <FurnitureItem />
-        <FurnitureItem />
-        <FurnitureItem />
-        <FurnitureItem />
+        {Object.entries(items).map(([id, item]) => (
+          <FurnitureItem key={id} itemId={id} item={item} />
+        ))}
       </div>
     </div>
   );

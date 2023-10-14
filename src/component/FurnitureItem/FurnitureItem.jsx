@@ -3,12 +3,21 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
+import Divider from "@mui/material/Divider";
 import "./FurnitureItem.less";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import ContactModal from "../FurnitureContact/FurnitureContact";
+import { useNavigate } from "react-router-dom";
 
+const FurnitureItem = (props) => {
+  const { itemId, item } = props;
+  const navigate = useNavigate();
 
-const FurnitureItem = () => {
+  const onFurnitureItemClicked = (e) => {
+    e.stopPropagation();
+    navigate(`/FurnitureDescription/${itemId}/detail`);
+  };
+
   const [isModalOpen, setModalOpen] = useState(false);
 
   const handleOpenModal = () => {
@@ -18,68 +27,64 @@ const FurnitureItem = () => {
   const handleCloseModal = () => {
     setModalOpen(false);
   };
+
+  const capitalizeFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
   return (
-    <div>
-      <Card className="furniture-item">
-        <CardActionArea onClick={handleOpenModal}>
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              height="200"
-              image="https://cdn.jsdelivr.net/gh/Hongda-OSU/PicGo/image/table.jpg"
-              alt="Image "
-            />
-            <CardContent className="furniture-item-content">
-              <Typography
-                variant="h5"
-                component="div"
-                className="furniture-item-name"
-              >
-                Furniture
-              </Typography>
-              <Typography
-                variant="h6"
-                component="div"
-                className="furniture-item-price"
-              >
-                $40
-              </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                className="furniture-item-description"
-              >
-                Discover the essence of elegant living with this exquisitely
-                handcrafted table, blending modern design with traditional
-                craftsmanship. Its sleek lines and robust wooden structure
-                infuse a touch of unique charm into your living space. Every
-                detail is meticulously refined, ensuring it's not just a
-                practical piece of furniture but an artistic statement.
-                Moreover, its multifunctional design makes it suitable for
-                various settings, be it a formal office environment or a cozy
-                home ambiance. Choose our table and elevate your space with
-                distinctive style.
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions className="furniture-item-contact">
-            <Button
-              size="small"
-              color="primary"
-              className="furniture-item-contact-button"
-              disableRipple={true}
-            >
-              Contact
-            </Button>
-          </CardActions>
-        </CardActionArea>
-      </Card>
-      <ContactModal
-        isModalOpen={isModalOpen}
-        handleCloseModal={handleCloseModal}
-        // contactDetails= {contactDetails}
-      />
-    </div>
+    <Card className="furniture-item">
+      <CardActionArea onClick={onFurnitureItemClicked}>
+        <CardMedia
+          component="img"
+          height="200"
+          image={item.imageLink}
+          alt="Image "
+        />
+        <CardContent className="furniture-item-content">
+          <Typography
+            variant="h5"
+            component="div"
+            className="furniture-item-name"
+          >
+            {capitalizeFirstLetter(item.furnitureName)}
+          </Typography>
+          <Typography
+            variant="h6"
+            component="div"
+            className="furniture-item-price"
+          >
+            ${item.price}
+          </Typography>
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            className="furniture-item-description"
+          >
+            {item.description}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <Divider light />
+      <CardActions className="furniture-item-contact">
+        <div>
+          <Button
+            size="small"
+            color="primary"
+            className="furniture-item-contact-button"
+            disableRipple={true}
+            onClick={handleOpenModal}
+          >
+            Contact
+          </Button>
+
+          <ContactModal
+            isModalOpen={isModalOpen}
+            handleCloseModal={handleCloseModal}
+          />
+        </div>
+      </CardActions>
+    </Card>
   );
 };
 
