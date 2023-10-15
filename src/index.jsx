@@ -16,11 +16,11 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           "& .MuiOutlinedInput-notchedOutline": {
-            border: `3px solid black`,
+            border: `2px solid black`,
           },
           "&.Mui-focused": {
             "& .MuiOutlinedInput-notchedOutline": {
-              border: `3px solid #186af0`,
+              border: `2px solid #186af0`,
             },
           },
         },

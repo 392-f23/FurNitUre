@@ -10,7 +10,7 @@
   flex-direction: column;
   height: auto;
   background-color: transparent !important;
-  border: 3px solid black !important;
+  border: 2px solid black !important;
   border-radius: 5px !important;
   overflow: visible !important;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25) !important;
@@ -31,14 +31,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px 24px 0 24px !important;
+  padding: 10px 18px 0 18px !important;
 }
 
 .furniture-item-name {
   overflow-wrap: break-word;
   color: rgba(0, 0, 0, 1) !important;
   font-family: "Dosis" !important;
-  font-size: 24px !important;
+  font-size: 22px !important;
   font-weight: 600 !important;
   text-align: left !important;
   white-space: nowrap !important;
@@ -49,7 +49,7 @@
   overflow-wrap: break-word;
   color: rgba(0, 0, 0, 1) !important;
   font-family: "Dosis" !important;
-  font-size: 20px !important;
+  font-size: 18px !important;
   font-weight: 600 !important;
   text-align: left !important;
   white-space: nowrap !important;
@@ -65,55 +65,54 @@
   overflow-wrap: break-word;
   font-family: "Dosis" !important;
   color: rgba(0, 0, 0, 1) !important;
-  font-size: 16px !important;
+  font-size: 15px !important;
   font-weight: 400 !important;
   text-align: left !important;
   margin: 2px 0 2px 0 !important;
-  min-height: 50px !important;
+  min-height: 45px !important;
 }
 
 .furniture-item-contact {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  padding: 8px 18px 8px 18px !important;
+  padding: 2px 18px 8px 12px !important;
 }
 
 .furniture-item-contact-button {
   padding: 0 !important;
   font-family: "Dosis" !important;
   color: rgba(0, 0, 255, 1) !important;
-  font-size: 14px !important;
+  font-size: 13px !important;
   font-weight: 400 !important;
   text-align: left !important;
 }
 
 .furniture-item hr {
-  margin-bottom: 5px !important;
-  margin-left: 20px !important;
-  margin-right: 20px !important;
+  margin-top: 3px !important;
+  margin-bottom: 3px !important;
+  margin-left: 18px !important;
+  margin-right: 18px !important;
   border-color: black !important;
 }
 
-@media (max-width: 1315px) {
-  .furniture-item hr {
-    margin-bottom: 0 !important;
+@media (max-width: 950px) {
+  .furniture-item img {
+    height: 160px !important;
   }
-}
 
-@media (max-width: 850px) {
   .furniture-item-content {
-    padding-top: 5px !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    padding-top: 6px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
   }
 
   .furniture-item-name {
-    font-size: 17px !important;
+    font-size: 16px !important;
   }
 
   .furniture-item-price {
-    font-size: 13px !important;
+    font-size: 12px !important;
   }
 
   .furniture-item-description {
@@ -122,13 +121,16 @@
   }
 
   .furniture-item hr {
-    display: none;
+    margin-left: 14px !important;
+    margin-right: 14px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 
   .furniture-item-contact {
     padding-top: 0 !important;
     padding-bottom: auto !important;
-    padding-left: 3px !important;
+    padding-left: 2px !important;
   }
 
   .furniture-item-contact-button {
@@ -137,38 +139,38 @@
 }
 
 @media (max-width: 750px) {
-  .furniture-item-name {
-    font-size: 20px !important;
+  .furniture-item img {
+    height: 140px !important;
   }
 
-  .furniture-item-price {
-    font-size: 15px !important;
+  .furniture-item-content {
+    padding-top: 7px !important;
+  }
+
+  .furniture-item hr {
+    display: none;
   }
 
   .furniture-item-description {
-    font-size: 13px !important;
-    min-height: 38px !important;
+    min-height: 30px !important;
   }
 
   .furniture-item-contact {
-    padding-left: 5px !important;
+    padding-left: 2px !important;
   }
 
   .furniture-item-contact-button {
-    font-size: 11px !important;
-  }
-}
-
-
-@media (max-width: 600px) {
-  .furniture-item img {
-    height: 170px !important;
+    font-size: 10px !important;
   }
 }
 
 @media (max-width: 515px) {
   .furniture-item img {
     height: 130px !important;
+  }
+
+  .furniture-item {
+    height: 225px !important;
   }
 
   .furniture-item-name {
@@ -185,23 +187,24 @@
   }
 
   .furniture-item-contact {
-    padding-left: 4px !important;
-  }
-
-  .furniture-item-contact-button {
-    font-size: 10px !important;
+    display: none !important;
   }
 }
 
 @media (max-width: 430px) {
   .furniture-item img {
-    height: 105px !important;
+    height: 100px !important;
+  }
+
+  .furniture-item {
+    height: 185px !important;
+    border: 1px solid black !important;
   }
 
   .furniture-item-content {
-    padding-top: 3px !important;
-    padding-left: 14px !important;
-    padding-right: 14px !important;
+    padding-top: 4px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
   }
 
   .furniture-item-name {
@@ -209,21 +212,11 @@
   }
 
   .furniture-item-price {
-    font-size: 10px !important;
+    font-size: 12px !important;
   }
 
   .furniture-item-description {
     font-size: 9px !important;
-    min-height: 18px !important;
-  }
-
-  .furniture-item-contact {
-    display: none !important;
   }
 }
 
-@media (max-width: 400px) {
-  .furniture-item img {
-    height: 95px !important;
-  }
-}
