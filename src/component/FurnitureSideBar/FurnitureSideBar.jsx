@@ -24,7 +24,7 @@ const FurnitureSideBar = () => {
       <div className="furniture-sidebar-search-container">
         <TextField
           sx={{
-            fieldset: { border: "3px solid black" },
+            fieldset: { border: "2px solid black" },
           }}
           label="Search"
           className="furniture-sidebar-search"
