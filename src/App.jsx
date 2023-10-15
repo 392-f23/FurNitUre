@@ -1,18 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Dispatcher from "./component/Dispatcher";
-import data from "./utilities/furnitureData.json";
-//import data from "./component/mockData.json";
+import { useDbData, signOut } from "./utilities/firebase";
+import { useProfile } from "./utilities/userProfile";
 import "./App.less";
 
 const App = () => {
-  const [furnitureData, setFurnitureData] = useState(data.furniture);
+  const [profile, profileError] = useProfile();
+  const [data, error] = useDbData("/");
+  const [furnitureData, setFurnitureData] = useState();
+
+  useEffect(() => {
+    if (data) {
+      setFurnitureData(data.furniture);
+    }
+    if (error) {
+      console.error(error);
+    }
+  }, [data, error]);
+
   const addFunriture = (furniture) => {
-    setFurnitureData({...furnitureData, furniture});
+    setFurnitureData({ ...furnitureData, furniture });
   };
 
   return (
     <div className="app">
-      <Dispatcher data={furnitureData} addFurniture={addFunriture} />
+      {data && <Dispatcher data={data.furniture} addFurniture={addFunriture} />}
     </div>
   );
 };

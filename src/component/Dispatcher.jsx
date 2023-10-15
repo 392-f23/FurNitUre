@@ -13,11 +13,15 @@ const ItemWrapper = ({ data }) => {
   }
   return <FurnitureDescription item={item} />;
 };
+
 const Dispatcher = ({ data, addFurniture }) => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<MainPage data={data} />}></Route>
-      <Route path="/createListing" element={<AddForm addFurniture={addFurniture} />}></Route>
+      <Route
+        path="/createListing"
+        element={<AddForm addFurniture={addFurniture} />}
+      ></Route>
       <Route
         path="/FurnitureDescription/:itemId/detail"
         element={<ItemWrapper data={data} />}
