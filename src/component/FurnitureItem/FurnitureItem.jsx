@@ -81,6 +81,7 @@ const FurnitureItem = (props) => {
           <ContactModal
             isModalOpen={isModalOpen}
             handleCloseModal={handleCloseModal}
+            contactDetails={item.sellerPhoneNumber}
           />
         </div>
       </CardActions>

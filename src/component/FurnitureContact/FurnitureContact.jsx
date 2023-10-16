@@ -6,6 +6,8 @@ function ContactModal({ isModalOpen, handleCloseModal, contactDetails }) {
     return null;
   }
 
+  const phoneNumber = contactDetails
+
   return (
     <Modal open={isModalOpen} onClose={handleCloseModal}>
       <Box
@@ -24,7 +26,9 @@ function ContactModal({ isModalOpen, handleCloseModal, contactDetails }) {
         <Typography variant="h6" component="div">
           Contact Information
         </Typography>
-        {contactDetails ?  <p>{contactDetails}</p>: <p>contact details go here</p>}
+        {contactDetails ?  <p>
+          <a href={`tel:${phoneNumber}`}>{phoneNumber}</a>
+        </p>: <p>no contact provided</p>}
         <Button onClick={handleCloseModal} color="primary">
           Close
         </Button>
