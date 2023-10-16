@@ -24,7 +24,7 @@ const App = () => {
 
   return (
     <div className="app">
-      {data && <Dispatcher data={data.furniture} addFurniture={addFunriture} />}
+      {data && <Dispatcher data={data.furniture} addFurniture={addFunriture} profile={profile} />}
     </div>
   );
 };

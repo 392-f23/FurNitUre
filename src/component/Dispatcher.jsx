@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import FurnitureDescription from "./FurnitureDescription/FurnitureDescription";
 import AddForm from "./FurnitureAddForm/FurnitureAddForm";
 import MainPage from "./MainPage";
+import { useProfile } from "../utilities/userProfile";
+import FurnitureUserProfile from "./FurnitureUserProfile/FurnitureUserProfile"
 
 const ItemWrapper = ({ data }) => {
   const { itemId } = useParams();
@@ -14,12 +16,15 @@ const ItemWrapper = ({ data }) => {
   return <FurnitureDescription item={item} />;
 };
 
-const Dispatcher = ({ data, addFurniture }) => (
-  <BrowserRouter>
+const Dispatcher = ({ data, addFurniture, profile }) => {
+
+
+  return <BrowserRouter>
     <Routes>
-      <Route path="/" element={<MainPage data={data} />}></Route>
+    <Route path="/users/:id" element={<FurnitureUserProfile profile={profile} />} />
+      <Route path="/" element={<MainPage data={data} profile={profile}/>}></Route>
       <Route
-        path="/createListing"
+        path="/createListing" 
         element={<AddForm addFurniture={addFurniture} />}
       ></Route>
       <Route
@@ -28,6 +33,8 @@ const Dispatcher = ({ data, addFurniture }) => (
       ></Route>
     </Routes>
   </BrowserRouter>
-);
+}
+
+
 
 export default Dispatcher;
