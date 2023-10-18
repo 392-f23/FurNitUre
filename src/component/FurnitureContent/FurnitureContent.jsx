@@ -14,7 +14,9 @@ const FurnitureContent = (props) => {
     }
     const itemsArray = Object.values(data.items);
     const filtered = itemsArray.filter(item =>
-      item.name.toLowerCase().includes(query.toLowerCase())
+      item.furnitureName.toLowerCase().includes(query.toLowerCase()) 
+      || 
+      item.description.toLowerCase().includes(query.toLowerCase())
     );
     setFilteredItems(filtered);
   };
