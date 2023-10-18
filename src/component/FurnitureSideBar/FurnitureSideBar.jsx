@@ -10,19 +10,32 @@ import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Button from "@mui/material/Button";
 import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+
 import "./FurnitureSideBar.less";
 
-const FurnitureSideBar = () => {
+const FurnitureSideBar = (props) => {
   const navigate = useNavigate();
   const createListingHandler = (e) => {
     e.stopPropagation();
     navigate(`/createListing`);
   };
 
+  const { onSearch } = props;
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearchChange = (event) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+    onSearch(query); 
+  };
+
   return (
     <div className="furniture-sidebar">
       <div className="furniture-sidebar-search-container">
         <TextField
+              value={searchQuery} 
+              onChange={handleSearchChange} 
           sx={{
             fieldset: { border: "2px solid black" },
           }}
