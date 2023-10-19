@@ -20,24 +20,38 @@ const initialFormState = {
   Condition: "",
   Material: "",
   Finish: "",
+  DecorStyle: "",
+  Brand: "",
+  Image: "", 
 };
 
-const InputField = ({ name, text, state, change }) => (
-  <div className="mb-3">
-    <label htmlFor={name} className="form-label">
-      {text}
-    </label>
-    <input
-      className="form-control"
-      id={name}
-      name={name}
-      value={state[name]} 
-      onChange={(e) => change({ ...state, [name]: e.target.value })}
 
-    />
-    <div className="invalid-feedback">{state.errors?.[name]}</div>
-  </div>
-);
+const InputField = ({ name, text, state, change }) => {
+  const handleChange = (e) => {
+    const newValue = e.target.value;
+    change({ ...state, [name]: newValue });
+    
+    if (isValidURL(newValue)) {
+      setUploadedImage(newValue);
+    }
+  };
+
+  return (
+    <div className="mb-3">
+      <label htmlFor={name} className="form-label">
+        {text}
+      </label>
+      <input
+        className="form-control"
+        id={name}
+        name={name}
+        value={state[name] || ''} 
+        onChange={handleChange}
+      />
+      <div className="invalid-feedback">{state.errors?.[name]}</div>
+    </div>
+  );
+};
 
 const ButtonBar = ({ message, disabled }) => {
   const navigate = useNavigate();
@@ -53,17 +67,39 @@ const ButtonBar = ({ message, disabled }) => {
     </div>
   );
 };
+function isValidURL(str) {
+  const pattern = new RegExp('^(https?:\\/\\/)?' + 
+    '((([a-zA-Z\\d]([a-zA-Z\\d-]*[a-zA-Z\\d])*)\\.)+[a-zA-Z]{2,}|' + 
+    '((\\d{1,3}\\.){3}\\d{1,3}))' + 
+    '(\\:\\d+)?(\\/[-a-zA-Z\\d%_.~+]*)*' + 
+    '(\\?[;&a-zA-Z\\d%_.~+=-]*)?' + 
+    '(\\#[-a-zA-Z\\d_]*)?$', 'i'); 
+
+  return !!pattern.test(str);
+}
 
 const AddForm = ({ addFurniture }) => {
   const navigate = useNavigate();
   const [update, result] = useState("");
+  const [uploadedImage, setUploadedImage] = useState(null);
   const [focused, setFocused] = useState(null);
   const [state, change] = useState(initialFormState);
+  const [buttonClass, setButtonClass] = useState({
+    DeliveryMethod: "",
+    Condition: "",
+    Material: "",
+    Finish: "",
+    Brand: "",
+    DecorStyle: "",
+    
+  });
   const [showInputFields, setShowInputFields] = useState({
     DeliveryMethod: false,
     Condition: false,
     Material: false,
     Finish: false,
+    Brand: false,
+    DecorStyle: false,
   });
 
   const toggleInputFields = (field) => {
@@ -71,22 +107,29 @@ const AddForm = ({ addFurniture }) => {
       ...prevState,
       [field]: !prevState[field],
     }));
+    setButtonClass((prevState) => ({
+      ...prevState,
+      [field]: !prevState[field] ? "green-button" : "",
+    }));
   };
 
   const submit = (e) => {
     e.preventDefault();
     const formData = {
-      item: state.Item,
-      image: null,
+      furnitureName: state.Item,
+      imageLink: state.Image,
+      description: state.Description, Location: state.Location,
       price: state.Price,
-      description: state.Description,
-      
+      sellerName: null,
+      sellerAddress: null,
+      sellerPhoneNumber: null,
+      deliveryMethod: showInputFields.DeliveryMethod ? state.DeliveryMethod : null,
+      condition: showInputFields.Condition ? state.Condition : null,
+      brand : showInputFields.Brand ? state.Brand: null,
+      decorStyle: showInputFields.DecorStyle ? state.DecorStyle: null,
+      finish: showInputFields.Finish ? state.Finish : null,
+      material: showInputFields.Material ? state.Material : null,    
     };
-/*    Location: state.Location,
-      DeliveryMethod: showInputFields.DeliveryMethod ? state.DeliveryMethod : null,
-      Condition: showInputFields.Condition ? state.Condition : null,
-      Material: showInputFields.Material ? state.Material : null,
-      Finish: showInputFields.Finish ? state.Finish : null, */
     console.log(formData);
     addFurniture(formData);
     navigate(-1);
@@ -94,7 +137,7 @@ const AddForm = ({ addFurniture }) => {
   };
 
   return (
-    <>
+    <div className="scrolling">
       <div className="topPad"></div>
     
       <Card
@@ -125,7 +168,9 @@ const AddForm = ({ addFurniture }) => {
                 startIcon={<CloudUploadIcon />}
               >
                 Upload file
-                <input type="file" className="visually-hidden-input" />
+                <input type="file" className="visually-hidden-input"
+                    onChange={(e) => {const file = e.target.files[0];
+                    setUploadedImage(URL.createObjectURL(file));}}/>
               </Button>
             </Box>
           </CardContent>
@@ -134,14 +179,15 @@ const AddForm = ({ addFurniture }) => {
           component="img"
           alt="Image Preview"
           height="500"
-          image={furniturePlaceholder}
+          image={state.Image || uploadedImage || furniturePlaceholder}
         />
 
         <form onSubmit={submit} noValidate className={state.errors ? "was-validated" : null}>
+          <InputField name="Image" text="Image URL" state={state} change={change} setUploadedImage={setUploadedImage}/>
           <InputField name="Item" text="Item" state={state} change={change} />
           <InputField name="Description" text="Description" state={state} change={change} />
           <InputField name="Price" text="Price" state={state} change={change} />
-          <InputField name="Location" text="Location" state={state} change={change} />
+          
           {showInputFields.DeliveryMethod && (
             <InputField name="DeliveryMethod" text="Delivery Method" state={state} change={change} />
           )}
@@ -154,27 +200,39 @@ const AddForm = ({ addFurniture }) => {
           {showInputFields.Finish && (
             <InputField name="Finish" text="Finish" state={state} change={change} />
           )}
+          {showInputFields.Brand && (
+            <InputField name="Brand" text="Brand" state={state} change={change} />
+          )}
+          {showInputFields.DecorStyle && (
+            <InputField name="DecorStyle" text="DecorStyle" state={state} change={change} />
+          )}
           <div className="bar">
             Add More Information:
-          <button className="mx-auto " type="button"
+          <button className={`mx-auto ${buttonClass.DeliveryMethod}`} type="button"
             onClick={() => toggleInputFields("DeliveryMethod")}
           >
             Delivery Method
           </button>
-          <button className="mx-auto" type="button" onClick={() => toggleInputFields("Condition")}>
+          <button className={`mx-auto ${buttonClass.Condition}`} type="button" onClick={() => toggleInputFields("Condition")}>
             Condition
           </button>
-          <button className="mx-auto" type="button" onClick={() => toggleInputFields("Material")}>
+          <button className={`mx-auto ${buttonClass.Material}`} type="button" onClick={() => toggleInputFields("Material")}>
             Material
           </button>
-          <button  className="mx-auto"type="button" onClick={() => toggleInputFields("Finish")}>
+          <button  className={`mx-auto ${buttonClass.Finish}`} type="button" onClick={() => toggleInputFields("Finish")}>
             Finish
+          </button>
+          <button  className={`mx-auto ${buttonClass.DecorStyle}`} type="button" onClick={() => toggleInputFields("DecorStyle")}>
+            Decor Style
+          </button>
+          <button  className={`mx-auto ${buttonClass.Brand}`}type="button" onClick={() => toggleInputFields("Brand")}>
+            Brand
           </button>
           </div>
           <ButtonBar message={result?.message} />
         </form>
       </Card>
-    </>
+    </div>
   );
 };
 
