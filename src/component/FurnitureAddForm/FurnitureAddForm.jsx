@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import furniturePlaceholder from "./furniturePlaceHolder.png";
 import "./FurnitureAddForm.less";
 
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, push } from "firebase/database";
 import { database, useDbUpdate } from '../../utilities/firebase';
 
 
@@ -119,7 +119,7 @@ const AddForm = ({ addFurniture }) => {
 
   const addData = (path, newItem) => {
     const newItemRef = ref(database, path);
-    set(newItemRef, newItem)
+    push(newItemRef, newItem)
       .then(() => {
         console.log("Furniture added successfully.");
       })
