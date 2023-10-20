@@ -26,7 +26,7 @@ if (!getApps().length) {
   firebase = getApp();
 }
 
-const database = getDatabase(firebase);
+export const database = getDatabase(firebase);
 
 export const useDbData = (path) => {
   const [data, setData] = useState();

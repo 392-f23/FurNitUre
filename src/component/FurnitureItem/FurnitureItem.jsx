@@ -10,6 +10,7 @@ import ContactModal from "../FurnitureContact/FurnitureContact";
 import { useNavigate } from "react-router-dom";
 
 const FurnitureItem = (props) => {
+  console.log(props);
   const { itemId, item } = props;
   const navigate = useNavigate();
 

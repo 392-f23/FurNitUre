@@ -11,6 +11,10 @@ import { useNavigate } from "react-router-dom";
 import furniturePlaceholder from "./furniturePlaceHolder.png";
 import "./FurnitureAddForm.less";
 
+import { getDatabase, ref, push } from "firebase/database";
+import { database, useDbUpdate } from '../../utilities/firebase';
+
+
 const initialFormState = {
   Item: "",
   Description: "",
@@ -113,6 +117,18 @@ const AddForm = ({ addFurniture }) => {
     }));
   };
 
+  const addData = (path, newItem) => {
+    const newItemRef = ref(database, path);
+    push(newItemRef, newItem)
+      .then(() => {
+        console.log("Furniture added successfully.");
+      })
+      .catch((error) => {
+        console.error("Error adding furniture: ", error);
+      });
+  };
+  
+
   const submit = (e) => {
     e.preventDefault();
     const formData = {
@@ -132,6 +148,9 @@ const AddForm = ({ addFurniture }) => {
     };
     console.log(formData);
     addFurniture(formData);
+
+    addData('furniture/items', formData);
+
     navigate(-1);
     //alert("Submitted");
   };
