@@ -1,13 +1,20 @@
 import { Link } from 'react-router-dom';
 import './FurnitureUserProfile.less'
+import FurnitureItemContainer from '../FurnitureItemContainer/FurnitureItemContainer'
 
-export const firstLastName = (user) => (
-  user ? `${user.firstName} ${user.lastName}` : 'Unknown user'
-);
+export const findUserItems = (user, data) => {
+    const name = user.displayName;
+    const owned = data.items.filter((item) => {
+        item.sellerName == name;
+    })
+    return owned;
+}
 
-const FurnitureUserProfile   = ({profile}) => {
-    console.log(profile);
+const FurnitureUserProfile = ({profile, data}) => {
+    console.log(data);
     const user = profile.user;
+    const owned = findUserItems(user, data);
+    console.log(owned);
 //     return <div>
 //     <h3>
 //       { user.displayName}  
@@ -25,6 +32,7 @@ const FurnitureUserProfile   = ({profile}) => {
         <h2 className="user-name">{user.displayName}</h2>
         <p className="user-email">{user.email}</p>
         <p className="user-phone">{user.phone}</p>
+        <FurnitureItemContainer items={owned} />
     </div>
 }
 

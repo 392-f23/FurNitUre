@@ -21,7 +21,7 @@ const Dispatcher = ({ data, addFurniture, profile }) => {
 
   return <BrowserRouter>
     <Routes>
-    <Route path="/users/:id" element={<FurnitureUserProfile profile={profile} />} />
+    <Route path="/users/:id" element={<FurnitureUserProfile profile={profile} data={data}/>} />
       <Route path="/" element={<MainPage data={data} profile={profile}/>}></Route>
       <Route
         path="/createListing" 
