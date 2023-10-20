@@ -17,7 +17,7 @@
   margin: 20px 20px 0 20px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .furniture-header-text-container {
@@ -43,10 +43,50 @@
   color: rgba(128, 0, 128, 1);
 }
 
+.furniture-header-login {
+  width: auto;
+  height: auto;
+  padding: 10px 10px 5px 0;
+  display: flex;
+}
+
+.furniture-header-login-button {
+  overflow-wrap: break-word;
+  color: rgba(0, 0, 0, 1) !important;
+  font-family: "Dosis" !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  text-align: center;
+  white-space: wrap;
+}
+
+.furniture-header-login-button:hover {
+  transform: scale(1.015);
+  filter: brightness(1.05);
+  ::before {
+    filter: brightness(0.5);
+    top: -100%;
+    left: 200%;
+  }
+}
+
+.furniture-header-login-avator {
+  margin-left: 20px;
+  margin-right: 80px;
+}
+
+.active {
+  margin-right: 120px;
+}
+
 @media (max-width: 1200px) {
   .furniture-header {
     justify-content: center;
     align-items: center;
+  }
+
+  .furniture-header-login {
+    display: none;
   }
 
   .furniture-header-text-container {
@@ -57,3 +97,4 @@
     font-size: 42px;
   }
 }
+

@@ -10,6 +10,9 @@ import Box from "@mui/material/Box";
 import { useNavigate } from "react-router-dom";
 import furniturePlaceholder from "./furniturePlaceHolder.png";
 import "./FurnitureAddForm.less";
+import { getFirebaseStorage } from "../../utilities/firebase";
+import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
+import { v4 as uuidv4 } from "uuid";
 
 import { getDatabase, ref, push } from "firebase/database";
 import { database, useDbUpdate } from '../../utilities/firebase';
@@ -106,6 +109,30 @@ const AddForm = ({ addFurniture }) => {
     DecorStyle: false,
   });
 
+  const uploadImage = (image) => {
+    if (image == null) {
+      return Promise.resolve(null);
+    }
+    const storage = getFirebaseStorage();
+    const imageRef = storageRef(storage, `images/${image.name + uuidv4()}`);
+
+    return uploadBytes(imageRef, image).then(() => {
+      return getDownloadURL(imageRef);
+    });
+  };
+
+  const handleUploadImage = (e) => {
+    uploadImage(e.target.files[0])
+      .then((url) => {
+        if (url) {
+          setUploadedImage(url)
+        }
+      })
+      .catch((error) => {
+        console.error("Error during the image upload:", error);
+      });
+  }
+
   const toggleInputFields = (field) => {
     setShowInputFields((prevState) => ({
       ...prevState,
@@ -188,8 +215,7 @@ const AddForm = ({ addFurniture }) => {
               >
                 Upload file
                 <input type="file" className="visually-hidden-input"
-                    onChange={(e) => {const file = e.target.files[0];
-                    setUploadedImage(URL.createObjectURL(file));}}/>
+                    onChange={handleUploadImage}/>
               </Button>
             </Box>
           </CardContent>
@@ -202,7 +228,6 @@ const AddForm = ({ addFurniture }) => {
         />
 
         <form onSubmit={submit} noValidate className={state.errors ? "was-validated" : null}>
-          <InputField name="Image" text="Image URL" state={state} change={change} setUploadedImage={setUploadedImage}/>
           <InputField name="Item" text="Item" state={state} change={change} />
           <InputField name="Description" text="Description" state={state} change={change} />
           <InputField name="Price" text="Price" state={state} change={change} />

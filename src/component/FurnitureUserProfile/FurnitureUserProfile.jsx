@@ -11,7 +11,6 @@ export const findUserItems = (user, data) => {
 }
 
 const FurnitureUserProfile = ({profile, data}) => {
-    console.log(data);
     const user = profile.user;
     const owned = findUserItems(user, data);
     console.log(owned);
@@ -32,7 +31,7 @@ const FurnitureUserProfile = ({profile, data}) => {
         <h2 className="user-name">{user.displayName}</h2>
         <p className="user-email">{user.email}</p>
         <p className="user-phone">{user.phone}</p>
-        <FurnitureItemContainer items={data.items} />
+        <FurnitureItemContainer items={data.items} filteredItems={null} filters={[]} />
     </div>
 }
 

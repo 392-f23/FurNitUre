@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getDatabase, onValue, ref, update } from "firebase/database";
+import { getDatabase, onValue, ref, update, } from "firebase/database";
+import { getStorage } from "firebase/storage";
 import {
   getAuth,
   GoogleAuthProvider,
@@ -27,6 +28,9 @@ if (!getApps().length) {
 }
 
 export const database = getDatabase(firebase);
+export const getFirebaseStorage = () => {
+  return getStorage(firebase);
+};
 
 export const useDbData = (path) => {
   const [data, setData] = useState();

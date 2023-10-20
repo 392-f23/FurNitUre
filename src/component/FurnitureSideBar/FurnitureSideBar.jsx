@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./FurnitureSideBar.less";
+import { useAuthState } from "../../utilities/firebase.js";
 
 const FurnitureSideBar = ({ onSearch, onFilter }) => {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const FurnitureSideBar = ({ onSearch, onFilter }) => {
     e.stopPropagation();
     navigate(`/createListing`);
   };
+  const [user] = useAuthState();
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -289,16 +291,18 @@ const FurnitureSideBar = ({ onSearch, onFilter }) => {
         </Accordion>
       </div>
 
-      <div className="furniture-sidebar-publish-furniture">
-        <Button
-          size="small"
-          className="furniture-sidebar-publish-furniture-button"
-          disableRipple={true}
-          onClick={createListingHandler}
-        >
-          Publish Furniture
-        </Button>
-      </div>
+      {user && (
+        <div className="furniture-sidebar-publish-furniture">
+          <Button
+            size="small"
+            className="furniture-sidebar-publish-furniture-button"
+            disableRipple={true}
+            onClick={createListingHandler}
+          >
+            Publish Furniture
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
