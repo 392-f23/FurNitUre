@@ -32,7 +32,7 @@ const FurnitureUserProfile = ({profile, data}) => {
         <h2 className="user-name">{user.displayName}</h2>
         <p className="user-email">{user.email}</p>
         <p className="user-phone">{user.phone}</p>
-        <FurnitureItemContainer items={owned} />
+        <FurnitureItemContainer items={data.items} />
     </div>
 }
 

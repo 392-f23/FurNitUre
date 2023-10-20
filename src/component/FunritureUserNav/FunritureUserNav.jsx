@@ -40,7 +40,6 @@ const FunritureUserNav = ({profile}) => {
   } 
 
   return <nav className="d-flex">
-    <NavLink to="/" className={activation} end><button className="ms-auto btn btn-dark sign-button">Furnitures</button></NavLink>
     <AuthButton />
     <AvatarButton profile={profile}/>
   </nav>
