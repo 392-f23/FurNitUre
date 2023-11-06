@@ -1,7 +1,7 @@
 import FurnitureItem from "../FurnitureItem/FurnitureItem";
 import "./FurnitureItemContainer.less";
 
-const FurnitureItemContainer = ({ items, filteredItems, filters }) => {
+const FurnitureItemContainer = ({ items, filteredItems, filters = [] }) => {
   
   const filterItems = (items) => {
     if (filters.length === 0) return items;

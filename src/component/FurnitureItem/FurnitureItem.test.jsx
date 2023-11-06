@@ -21,7 +21,7 @@ const itemMock = {
   },
 };
 
-describe("FurnitureItem", () => {
+describe("FurnitureItem Component", () => {
   it("should open ContactModal when CONTACT button is clicked", async () => {
     render(
       <BrowserRouter>
