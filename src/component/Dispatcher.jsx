@@ -13,6 +13,7 @@ const ItemWrapper = ({ data }) => {
   if (!item) {
     return <div>Item not found</div>;
   }
+  console.log(item);
   return <FurnitureDescription item={item} />;
 };
 
