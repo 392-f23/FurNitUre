@@ -20,14 +20,17 @@ const activation = ({isActive}) => isActive ? 'active' : 'inactive';
 
 const FunritureUserNav = ({profile}) => {
   var avatar =  '';
+  if (profile != null){
+    if( profile.user != null){
+      avatar = profile.user.photoURL;
+    }
 
-  if( profile.user != null){
-    avatar = profile.user.photoURL;
+    if(avatar == null){
+      avatar = '';
+    }
   }
 
-  if(avatar == null){
-    avatar = '';
-  }
+  
 
   const AvatarButton = ({profile}) => {
     if (profile == null){
