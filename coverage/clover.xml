@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1699242305789" clover="3.2.0">
-  <project timestamp="1699242305789" name="All files">
+<coverage generated="1699839760877" clover="3.2.0">
+  <project timestamp="1699839760878" name="All files">
     <metrics statements="644" coveredstatements="565" conditionals="31" coveredconditionals="25" methods="51" coveredmethods="11" elements="726" coveredelements="601" complexity="0" loc="644" ncloc="644" packages="6" files="6" classes="6"/>
     <package name="component.FurnitureContact">
       <metrics statements="68" coveredstatements="64" conditionals="8" coveredconditionals="6" methods="1" coveredmethods="1"/>
-      <file name="FurnitureContact.jsx" path="C:\Users\linho\Desktop\CS 392\FurNitUre\src\component\FurnitureContact\FurnitureContact.jsx">
+      <file name="FurnitureContact.jsx" path="C:\Users\17735\Downloads\FurNitUre\src\component\FurnitureContact\FurnitureContact.jsx">
         <metrics statements="68" coveredstatements="64" conditionals="8" coveredconditionals="6" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -78,7 +78,7 @@
     </package>
     <package name="component.FurnitureContent">
       <metrics statements="47" coveredstatements="38" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="2"/>
-      <file name="FurnitureContent.jsx" path="C:\Users\linho\Desktop\CS 392\FurNitUre\src\component\FurnitureContent\FurnitureContent.jsx">
+      <file name="FurnitureContent.jsx" path="C:\Users\17735\Downloads\FurNitUre\src\component\FurnitureContent\FurnitureContent.jsx">
         <metrics statements="47" coveredstatements="38" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -131,7 +131,7 @@
     </package>
     <package name="component.FurnitureItem">
       <metrics statements="94" coveredstatements="89" conditionals="3" coveredconditionals="3" methods="5" coveredmethods="3"/>
-      <file name="FurnitureItem.jsx" path="C:\Users\linho\Desktop\CS 392\FurNitUre\src\component\FurnitureItem\FurnitureItem.jsx">
+      <file name="FurnitureItem.jsx" path="C:\Users\17735\Downloads\FurNitUre\src\component\FurnitureItem\FurnitureItem.jsx">
         <metrics statements="94" coveredstatements="89" conditionals="3" coveredconditionals="3" methods="5" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -231,7 +231,7 @@
     </package>
     <package name="component.FurnitureItemContainer">
       <metrics statements="34" coveredstatements="28" conditionals="8" coveredconditionals="7" methods="2" coveredmethods="2"/>
-      <file name="FurnitureItemContainer.jsx" path="C:\Users\linho\Desktop\CS 392\FurNitUre\src\component\FurnitureItemContainer\FurnitureItemContainer.jsx">
+      <file name="FurnitureItemContainer.jsx" path="C:\Users\17735\Downloads\FurNitUre\src\component\FurnitureItemContainer\FurnitureItemContainer.jsx">
         <metrics statements="34" coveredstatements="28" conditionals="8" coveredconditionals="7" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -271,7 +271,7 @@
     </package>
     <package name="component.FurnitureSideBar">
       <metrics statements="310" coveredstatements="297" conditionals="3" coveredconditionals="2" methods="33" coveredmethods="2"/>
-      <file name="FurnitureSideBar.jsx" path="C:\Users\linho\Desktop\CS 392\FurNitUre\src\component\FurnitureSideBar\FurnitureSideBar.jsx">
+      <file name="FurnitureSideBar.jsx" path="C:\Users\17735\Downloads\FurNitUre\src\component\FurnitureSideBar\FurnitureSideBar.jsx">
         <metrics statements="310" coveredstatements="297" conditionals="3" coveredconditionals="2" methods="33" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -587,7 +587,7 @@
     </package>
     <package name="utilities">
       <metrics statements="91" coveredstatements="49" conditionals="3" coveredconditionals="2" methods="7" coveredmethods="1"/>
-      <file name="firebase.js" path="C:\Users\linho\Desktop\CS 392\FurNitUre\src\utilities\firebase.js">
+      <file name="firebase.js" path="C:\Users\17735\Downloads\FurNitUre\src\utilities\firebase.js">
         <metrics statements="91" coveredstatements="49" conditionals="3" coveredconditionals="2" methods="7" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
