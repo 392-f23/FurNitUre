@@ -32,7 +32,7 @@ const FurnitureHeader = ({ profile }) => {
           disableRipple={true}
           onClick={user ? signOut : signInWithGoogle}
         >
-          {user ? `Login Out` : `Login In`}
+          {user ? `Logout` : `Login`}
         </Button>
         {profile.user && (
           <Avatar

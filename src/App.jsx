@@ -8,7 +8,7 @@ const App = () => {
   const [profile, profileError] = useProfile();
   const [data, error] = useDbData("/");
   const [furnitureData, setFurnitureData] = useState();
-
+  console.log(profile)
   useEffect(() => {
     if (data) {
       setFurnitureData(data.furniture);
