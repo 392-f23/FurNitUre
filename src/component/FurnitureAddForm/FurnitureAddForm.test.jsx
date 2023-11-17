@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { expect } from "chai"; // Import expect from Chai
+import { expect } from "chai"; 
 import AddForm from "./FurnitureAddForm";
 
 describe("AddForm Component success", () => {
