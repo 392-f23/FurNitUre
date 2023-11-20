@@ -4,7 +4,6 @@ import FurnitureHeader from './FurnitureHeader';
 import * as firebaseUtils from "../../utilities/firebase";
 import { useNavigate } from 'react-router-dom';
 
-// Mocking Firebase and useNavigate with vi.fn() from Vitest
 vi.mock("../../utilities/firebase", () => ({
   useAuthState: vi.fn(),
   signOut: vi.fn(),
@@ -12,6 +11,7 @@ vi.mock("../../utilities/firebase", () => ({
 vi.mock("react-router-dom", () => ({
   useNavigate: vi.fn(),
 }));
+
 
 describe('FurnitureHeader', () => {
   it('should display logout in clickable button when user is logged in', async () => {
