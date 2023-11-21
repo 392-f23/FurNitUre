@@ -34,7 +34,7 @@ const FurnitureItem = (props) => {
 
   return (
     <Card className="furniture-item">
-      <CardActionArea onClick={onFurnitureItemClicked}>
+      <CardActionArea onClick={onFurnitureItemClicked} aria-label={item.furnitureName}>
         <CardMedia
           component="img"
           height="200"

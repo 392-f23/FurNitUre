@@ -5,6 +5,7 @@ import AddForm from "./FurnitureAddForm/FurnitureAddForm";
 import MainPage from "./MainPage";
 import { useProfile } from "../utilities/userProfile";
 import FurnitureUserProfile from "./FurnitureUserProfile/FurnitureUserProfile"
+import UserProfile from "./FurnitureUserProfile/UserProfile-chatgpt"
 
 const ItemWrapper = ({ data }) => {
   const { itemId } = useParams();
@@ -21,7 +22,7 @@ const Dispatcher = ({ data, addFurniture, profile }) => {
 
   return <BrowserRouter>
     <Routes>
-    <Route path="/users/:id" element={<FurnitureUserProfile profile={profile} data={data}/>} />
+    <Route path="/users/:id" element={<UserProfile profile={profile}/>} />
       <Route path="/" element={<MainPage data={data} profile={profile}/>}></Route>
       <Route
         path="/createListing" 
