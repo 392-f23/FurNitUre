@@ -298,7 +298,7 @@ const itemMock = {
 };
 
 describe("Route with no filter", () => {
-  it("When no filter is selected, clicking the first item should goes to route with id of 1.", async () => {
+  it("When no filter is selected, clicking the first item should goes to route with id of 0.", async () => {
     const user = userEvent.setup();
     const { container } = render(
       <BrowserRouter>
@@ -306,23 +306,14 @@ describe("Route with no filter", () => {
       </BrowserRouter>
     );
 
-    const furnitureItems = container.getElementsByClassName("furniture-item");
     const cardActionArea = screen.getByLabelText("Table");
 
-    if (furnitureItems.length > 0) {
-      const firstItem = furnitureItems[0];
+    fireEvent(cardActionArea, new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true,
+    }));
 
-      const card = firstItem.getElementsByTagName(
-        "button"
-      );
-
-
-      // expect(card[0]);
-      console.log(card);
-      console.log(cardActionArea);
-      fireEvent(cardActionArea, {Click: true});
-      expect(window.location.pathname).toBe('/FurnitureDescription/1/detail');
-    } 
+    expect(window.location.pathname).toBe('/FurnitureDescription/0/detail');
   });
 
   it("the route item will be the correct id if selected the right filter", async () => {
@@ -331,36 +322,34 @@ describe("Route with no filter", () => {
         <FurnitureContent data={itemMock} />
       </BrowserRouter>
     );
+    
 
-    const deliever = container.querySelector("panel1a-header");
-    expect(deliever);
+    const deliv = screen.getByLabelText("delivery");
+    // const deliever = container.querySelector("panel1a-header");
+    expect(deliv);
 
-    const furnitureItems = container.getElementsByClassName("furniture-item");
+    fireEvent(deliv, new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true,
+    }));
 
-    if (furnitureItems.length > 0) {
-      const firstItem = furnitureItems[0];
-      const firstItemTitleElement = firstItem.querySelector(
-        ".furniture-item-name"
-      );
+    const delivButton = screen.getByLabelText("Shipping");
+    fireEvent(delivButton, new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true,
+    }));
 
-      
-    }
-    // fireEvent.change(input, { target: { value: "table" } });
+    expect(screen.queryByLabelText("Table") == null);
+    // expect(wrongCardActionArea).toBeNull();
 
-    // const furnitureItems = container.getElementsByClassName("furniture-item");
+    const cardActionArea = screen.getByLabelText("Chair");
+    expect(cardActionArea);
+    fireEvent(cardActionArea, new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true,
+    }));
 
-    // if (furnitureItems.length === 0) {
-    //   expect(furnitureItems.length).toBe(0);
-    // } else {
-    //   const firstItem = furnitureItems[0];
-    //   const card = firstItem.getElementsByTagName(
-    //     "CardActionArea"
-    //   );
-
-
-    //   expect(card);
-    //   await user.click(card);
-    //   expect(window.location.pathname).toBe('/FurnitureDescription/1/detail');
-    // }
+    expect(window.location.pathname).toBe('/FurnitureDescription/1/detail');
+    
   });
 });

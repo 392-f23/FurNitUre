@@ -61,6 +61,7 @@ const FurnitureSideBar = ({ onSearch, onFilter }) => {
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
+            aria-label="delivery"
           >
             <Typography>Delivery Method</Typography>
           </AccordionSummary>
