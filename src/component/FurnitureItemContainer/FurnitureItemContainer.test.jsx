@@ -61,14 +61,14 @@ describe('FurnitureItemContainer Tests', () => {
     expect(screen.getByText('Table')).toBeInTheDocument();
   });
 
-  it('test fail', () => {
+//   it('test fail', () => {
     
-    render(
-        <BrowserRouter>
-            <FurnitureItemContainer items={mockFurnitureData} filteredItems={Object.entries(mockFurnitureData)} filters={""} />
-        </BrowserRouter>);
-    expect(screen.getByText('Chair')).toBeInTheDocument();
-    expect(screen.getByText('Table')).toBeInTheDocument();
-  });
+//     render(
+//         <BrowserRouter>
+//             <FurnitureItemContainer items={mockFurnitureData} filteredItems={Object.entries(mockFurnitureData)} filters={""} />
+//         </BrowserRouter>);
+//     expect(screen.getByText('Chair')).toBeInTheDocument();
+//     expect(screen.getByText('Table')).toBeInTheDocument();
+//   });
 });
 

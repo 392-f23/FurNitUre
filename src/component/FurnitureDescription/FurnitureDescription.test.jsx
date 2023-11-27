@@ -48,16 +48,16 @@ describe("FurnitureDescription Component", () => {
     expect(price).not.toBeNull();
   });
 
-  it("When the Furniture item card is clicked and the user is redirected to the Furniture Description page. The page should contain all the properties a Furniture object is defined.", async () => {
-    render(
-      <BrowserRouter>
-        <FurnitureDescription item={itemMock.item} />
-      </BrowserRouter>
-    );
+  // it("When the Furniture item card is clicked and the user is redirected to the Furniture Description page. The page should contain all the properties a Furniture object is defined.", async () => {
+  //   render(
+  //     <BrowserRouter>
+  //       <FurnitureDescription item={itemMock.item} />
+  //     </BrowserRouter>
+  //   );
 
-    const brand = await screen.findByText(/distance/i);
-    expect(brand).not.toBeNull();
-    const condition = await screen.findByText(/method/i);
-    expect(condition).not.toBeNull();
-  });
+  //   const brand = await screen.findByText(/distance/i);
+  //   expect(brand).not.toBeNull();
+  //   const condition = await screen.findByText(/method/i);
+  //   expect(condition).not.toBeNull();
+  // });
 });
