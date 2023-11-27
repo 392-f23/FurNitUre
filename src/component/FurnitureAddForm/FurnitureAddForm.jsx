@@ -8,7 +8,6 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import { useNavigate } from "react-router-dom";
-import furniturePlaceholder from "./furniturePlaceHolder.png";
 import "./FurnitureAddForm.less";
 import { getFirebaseStorage } from "../../utilities/firebase";
 import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -224,7 +223,7 @@ const AddForm = ({ addFurniture }) => {
           component="img"
           alt="Image Preview"
           height="500"
-          image={state.Image || uploadedImage || furniturePlaceholder}
+          image={state.Image || uploadedImage || "https://raw.githubusercontent.com/Hongda-OSU/PicGo-2.3.1/master/imgfurniturePlaceholder.png"}
         />
 
         <form onSubmit={submit} noValidate className={state.errors ? "was-validated" : null}>
